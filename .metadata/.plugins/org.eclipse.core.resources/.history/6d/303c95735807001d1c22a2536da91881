@@ -1,0 +1,28 @@
+package com.example.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.bean.UserData;
+
+@Controller
+public class TestController {
+	
+	private UserData studentData;
+	
+	@GetMapping(value = "/test")
+	public String test() {
+		return "TEST";
+	}
+	
+	@GetMapping(value = "/student/get") // test student no.
+	public UserData getStudent() {
+		studentData = new UserData();
+		// test data
+		studentData.setName("John");
+		studentData.setAge(25);
+		return studentData;
+	}
+	
+
+}
